@@ -1,0 +1,8 @@
+# Ignorar bases de datos SQLite
+*.db
+*.sqlite
+*.sqlite3
+*.db3
+
+# Ignorar csv
+data/raw/*.csv
