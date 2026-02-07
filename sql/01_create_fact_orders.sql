@@ -14,7 +14,8 @@ SELECT
     c.customer_state,
     o.order_purchase_timestamp AS date,
     o.order_delivered_customer_date,
-    SUM(oi.price + oi.freight_value) AS order_revenue
+    SUM(oi.price + oi.freight_value) AS order_revenue,
+    COUNT(DISTINCT oi.order_item_id) AS number_of_items
 FROM olist_orders_dataset AS o
 INNER JOIN olist_customers_dataset AS c
     ON o.customer_id = c.customer_id
@@ -37,7 +38,8 @@ SELECT
     o.order_purchase_timestamp AS date,
     o.order_delivered_customer_date,
     SUM(p.payment_value) AS total_paid,
-    GROUP_CONCAT(DISTINCT p.payment_type) AS payment_types
+    GROUP_CONCAT(DISTINCT p.payment_type) AS payment_types,
+    COUNT(DISTINCT p.payment_type) AS payment_types_count
 FROM olist_orders_dataset AS o
 INNER JOIN olist_customers_dataset AS c
     ON o.customer_id = c.customer_id
@@ -53,7 +55,7 @@ GROUP BY
 
 
 CREATE TABLE fact_orders AS
-SELECT r.order_id, r.customer_id, r.customer_state, r.date, r.order_delivered_customer_date, r.order_revenue, p.total_paid, p.payment_types
+SELECT r.order_id, r.customer_id, r.customer_state, r.date, r.order_delivered_customer_date, r.order_revenue, r.number_of_items, p.total_paid, p.payment_types, p.payment_types_count
 FROM fact_revenue AS r
 LEFT JOIN fact_paid AS p
     ON r.order_id = p.order_id;

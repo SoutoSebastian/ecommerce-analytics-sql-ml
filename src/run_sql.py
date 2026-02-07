@@ -24,5 +24,3 @@ with open(SQL_PATH2, "r", encoding="utf-8") as f:
 
 conn.executescript(sql_script)
 conn.close()
-
-print("Query ejecutada correctamente")

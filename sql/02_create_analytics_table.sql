@@ -16,7 +16,11 @@ SELECT
 
     strftime('%Y-%m', date) AS year_month,
     strftime('%w', date) AS day_of_week,
-    strftime('%H', date) AS purchase_hour
+    strftime('%H', date) AS purchase_hour,
+    CAST(strftime('%m', date) AS INTEGER) AS month,
+
+    payment_types_count,
+    number_of_items
 
 FROM fact_orders
 WHERE total_paid IS NOT NULL;

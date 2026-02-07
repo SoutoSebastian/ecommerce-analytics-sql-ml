@@ -6,3 +6,5 @@
 
 # Ignorar csv
 data/raw/*.csv
+
+.gitattributes
