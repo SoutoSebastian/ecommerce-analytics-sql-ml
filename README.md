@@ -80,6 +80,103 @@ ecommerce-analytics-sql-ml/
 
 ---
 
+## 🚀 How to Run This Project
+
+Follow the steps below to reproduce the full analysis workflow from raw data to modeling.
+
+---
+
+### 1️⃣ Download the Dataset
+
+Download the Olist Brazilian E-Commerce dataset from Kaggle:
+
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+Place all downloaded `.csv` files inside:
+
+data/raw/
+
+The folder structure should look like this:
+
+```
+ecommerce-analytics-sql-ml/
+│
+├── data/
+│   └── raw/
+│       ├── olist_orders_dataset.csv
+│       ├── olist_customers_dataset.csv
+│       ├── olist_order_items_dataset.csv
+│       ├── olist_order_payments_dataset.csv
+│       ├── olist_order_reviews_dataset.csv
+│       ├── olist_products_dataset.csv
+│       ├── olist_sellers_dataset.csv
+│       └── olist_geolocation_dataset.csv
+```
+
+---
+
+### 2️⃣ Create the SQLite Database
+
+Run the database creation script:
+
+python src/create_db.py
+
+This script:
+- Creates a SQLite database
+- Loads all raw CSV files
+- Stores them as structured tables inside `data/olist.db`
+
+---
+
+### 3️⃣ Run SQL Transformations
+
+Execute the SQL transformation script:
+
+python src/run_sql.py
+
+This step:
+- Builds fact tables
+- Creates the analytical dataset (`analytics_orders`)
+- Performs feature engineering using SQL
+
+---
+
+### 4️⃣ Run the Notebooks
+
+After completing the previous steps, you can run the notebooks in order:
+
+1. `01_eda.ipynb`
+2. `02_analytics.ipynb`
+3. `03_business_insights.ipynb`
+4. `04_modeling.ipynb`
+
+Make sure to run each notebook from top to bottom to ensure reproducibility.
+
+---
+
+### 5️⃣ Install Dependencies
+
+Before running the project, install the required Python packages:
+
+pip install -r requirements.txt
+
+---
+
+## ✅ Project Workflow Summary
+
+Raw CSV files  
+→ SQLite database creation  
+→ SQL feature engineering  
+→ Exploratory analysis  
+→ Advanced analytics  
+→ Predictive modeling  
+
+---
+
+This structure simulates a real-world data workflow, combining data engineering, analytics, and machine learning in an end-to-end pipeline.
+
+---
+
 ## ⚙️ Data Engineering & SQL Modeling
 
 Raw CSV files were loaded into SQLite and transformed into structured analytical tables.
