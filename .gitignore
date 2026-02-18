@@ -6,3 +6,4 @@
 
 # Ignorar csv
 data/raw/*.csv
+data/processed/*.csv

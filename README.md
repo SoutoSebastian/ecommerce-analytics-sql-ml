@@ -45,10 +45,12 @@ The raw data includes:
 
 ## 🧱 Project Structure
 
+```
 ecommerce-analytics-sql-ml/
 │
 ├── data/
 │ ├── raw/
+| |── processed/ 
 │ └── olist.db
 │
 ├── sql/
@@ -65,8 +67,16 @@ ecommerce-analytics-sql-ml/
 │ └── create_db.py
 │ └── run_sql.py
 |
+|── powerbi/
+|  └── ecommerce_dashboard.pbix
+|
+├── docs/
+|  └──db_schema.png 
+|
+├── requirements.txt
+|
 └── README.md
-
+```
 
 ---
 
@@ -146,6 +156,19 @@ Findings:
 ### Geographic Strategy
 - Revenue concentration highlights core operational regions
 - Delivery performance varies across states
+
+---
+
+## 📊 Interactive Dashboard
+
+A Power BI dashboard was developed to present executive-level insights.
+
+Main features:
+- Revenue evolution
+- Geographic concentration
+- Logistics performance
+
+File available in /powerbi folder.
 
 ---
 

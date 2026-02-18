@@ -7,6 +7,7 @@ SELECT
     customer_state,
     date,
     total_paid,
+    payment_types,
     order_revenue,
     
     CAST(

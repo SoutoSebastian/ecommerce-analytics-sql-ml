@@ -23,7 +23,7 @@ INNER JOIN olist_order_items_dataset AS oi
     ON o.order_id = oi.order_id
 WHERE o.order_status = 'delivered'
 GROUP BY
-     o.order_id,
+    o.order_id,
     c.customer_id,
     c.customer_state,
     o.order_purchase_timestamp,
@@ -47,7 +47,7 @@ LEFT JOIN olist_order_payments_dataset AS p
     ON o.order_id = p.order_id
 WHERE o.order_status = 'delivered'
 GROUP BY
-     o.order_id,
+    o.order_id,
     c.customer_id,
     c.customer_state,
     o.order_purchase_timestamp,
