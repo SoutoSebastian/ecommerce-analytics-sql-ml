@@ -61,3 +61,5 @@ LEFT JOIN fact_paid AS p
     ON r.order_id = p.order_id;
 
 
+
+

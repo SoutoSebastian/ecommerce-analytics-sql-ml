@@ -36,6 +36,7 @@ df.to_csv("data/processed/analytics_orders.csv", index=False)
 
 print("fin")
 
+
 conn.close()
 
 
